@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EventController!{% endblock %}
+
+{% block body %}
+    <article class="upcomming_event">
+        <h2>Evènements à venir </h2>
+        <img src="{{ asset('asset/images/jpg/amor_de_luenh.jpg') }}" alt="photo amor de luenh" class="photo">
+        <h3>Jam sesion de noël animée par <br>
+            Amor de Luèn :</h3>
+        <p>Durant les vacances de Noël 2021, l'association vous propose de se retrouver autour d'un verre de vin chaud et des instruments pour une jam session débridée ou tout le monde est le bienvenue.<br>
+            Bonne humeur et ouverture d'esprit de rigueur !<br>
+            Rendez-vous le 20 décembre au "Président" 46160 Cajarc.
+        </p>
+        <h3>Panam-Cajarc-Express parisian Tour</h3>
+        <p>Les compères du Panam-Cajarc-Express auront le plaisir de se retourver une fois de plus pour une tournée dans la région Ile de France comportant des concerts et une live session !<br>
+            1er concert le 7 décembre au "Petit Balcon", le reste des dates arrivent bientôt !</p>
+    </article>
+    <article class="passed_event">
+        <h2>Evènements passés </h2>
+        <img src="{{ asset('asset/images/jpg/bordu.jpg') }}" alt="photo amor de luenh" class="photo_bordu">
+        <h3>les mercredis du bord'du :</h3>
+        <p>Tous les mercredis de l'été, vous avez été nombreux à venir profiter d'un apéritif et d'un repas au bord du lot accompagné par la musique d'Amor de Luènh</p>
+        <img src="{{ asset('asset/images/jpg/duo.jpg') }}" alt="photo amor de luenh" class="photo_duo">
+        <h3>Duology Experiment :</h3>
+        <p>Ce groupe composé de deux jeunes musiciens est venu défendre leur approche si particulière de la musique. En effet composé uniquement d'une guitare et d'une batterie, ils vous ont fait voyager dans le cosmos inter-sidéral par le biais de leur nappes sonores</p>
+        <h3>Tournée du Panam-Cajar-Express :</h3>
+        <p>Composé de musiciens de la capitale et de musiciens locaux, ce groupe vous a emmené à travers des contrées sans frontières et sans compromis</p>
+    </article>
+    <article class="stage_event">
+        <h2>Résumé des Stages précédents </h2>
+
+        <p>Depuis 2017, l'association s'évertue à organiser son "Stage Musical Du Lot" envers et contre tout !<br>
+            C'est ainsi que, grace à ses divers partenariats avec les municipalités et son nombre d'élèves croissant, le stage continue de progresser chaque année. <br>
+            Nous avons donc pu, cette année, recruter un nouveau professeur, en la personne de Benjamin Aubry, pour dispenser des cours de Saxophone.<br>
+            De plus, si nous profitions de l'ancienne école de musique de Cajarc, celle-ci aura désormais été remplacée par une nouvelle école flambant neuve et équipée comme il se doit.<br>
+            Vivement la saison prochaine !!!</p>
+    </article>
+{% endblock %}

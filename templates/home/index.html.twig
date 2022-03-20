@@ -1,42 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Hello AccueilController!{% endblock %}
 
 {% block body %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
+    <article class="welcome_page">
+        <h2><span>I</span>n <span>E</span>x<span>t</span>r<span>e</span>m<span>i</span>s</h2>
+        <a href="#en_savoir_plus"><button>En savoir plus sur nous</button></a>
+    </article>
+    <article id="en_savoir_plus" class="asso_description">
+        <h2>L'association en quelques mots : </h2>
+        <h3>les débuts </h3>
+        <p>C'est durant l'été 2015, dans ce magnifique cadre qu'est le village de Cajarc dans la belle vallée du lot que notre équipe s'est rencontrée.<br>
+            Au cours de cette première rencontre musicale, l'envie d'échanger et de partager des différents protagonistes s'est fait sentir au point de préparer l'organisation de l'association et des différents évènnements attenants très rapidement derrière.<br>
+            Depuis, l'association n'a de cesse de développer son activité pour la rendre toujours plus riche et attrayante en se battant pour la culture et le partage de cette dernière</p>
+        <h3>Le stage</h3>
+        <p>Chaque année, au début du mois d'aout, In Extremis vous propose de participer à un stage autour des musiques improvisées dans un cadre amicale, ludique et bienveillant.<br>
+            Plus d'infos : <a href="https://www.lestagemusicaledulot.fr/" target="_blank"><button>Stage</button></a></p>
+        <h3>Les concerts</h3>
+        <p>Que ça soit durant la saison ou tout au long de l'année, In Extremis vous propose des concerts et Jam Session annimés par les groupes qu'elle représente.<br>
+            Plus d'infos : <a href="{{path('app_event')}}"><button>Evènements</button></a>
+        </p>
+    </article>
+    <article class="support">
+        <h2 >Nous soutenir :</h2>
+        <p>Pour nous soutenir, n'hésitez pas à rejoindre l'association en envoyant un mail à l'adresse :<br>
+            <a href="mailto:assoinextremis@gmail.com">assoinextremis@gmail.com</a><br>
+            et nous vous recontacterons rapidement.<br>
+            Sinon, un partage sur les réseaux sociaux est déja une belle preuve d'amitié par les temps qui courent !</p>
+    </article>
+
 {% endblock %}
