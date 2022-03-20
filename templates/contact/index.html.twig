@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+    <article id="en_savoir_plus" class="asso_description">
+        <h2>L'association en quelques mots : </h2>
+        <h3>les débuts </h3>
+        <p>C'est durant l'été 2015, dans ce magnifique cadre qu'est le village de Cajarc dans la belle vallée du lot que notre équipe s'est rencontrée.<br>
+            Au cours de cette première rencontre musicale, l'envie d'échanger et de partager des différents protagonistes s'est fait sentir au point de préparer l'organisation de l'association et des différents évènnements attenants très rapidement derrière.<br>
+            Depuis, l'association n'a de cesse de développer son activité pour la rendre toujours plus riche et attrayante en se battant pour la culture et le partage de cette dernière</p>
+        <h3>Le stage</h3>
+        <p>Chaque année, au début du mois d'aout, In Extremis vous propose de participer à un stage autour des musiques improvisées dans un cadre amicale, ludique et bienveillant.<br>
+            Plus d'infos : <a href="https://www.lestagemusicaledulot.fr/" target="_blank"><button>Stage</button></a></p>
+        <h3>Les concerts</h3>
+        <p>Que ça soit durant la saison ou tout au long de l'année, In Extremis vous propose des concerts et Jam Session annimés par les groupes qu'elle représente.<br>
+            Plus d'infos : <a href="{{path('app_event')}}"><button>Evènements</button></a>
+        </p>
+    </article>
+    <article class="support">
+        <h2 >Nous soutenir :</h2>
+        <p>Pour nous soutenir, n'hésitez pas à rejoindre l'association en envoyant un mail à l'adresse :<br>
+            <a href="mailto:assoinextremis@gmail.com">assoinextremis@gmail.com</a><br>
+            et nous vous recontacterons rapidement.<br>
+            Sinon, un partage sur les réseaux sociaux est déja une belle preuve d'amitié par les temps qui courent !</p>
+    </article>
+{% endblock %}

@@ -182,13 +182,21 @@ nav ul li a:visited {
 .welcome_page button {
   @include button($color4, $padding: 1vh 5vw);
 }
-
+.actualites {
+  @include article_base();
+  background-color: $color2;
+  color: $color3;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(0,0,0,0.6)), url('../../public/asset/images/jpg/cajarc2.jpg');
+}
+.exprimez-vous {
+  @include article_base();
+  background-color: $color3;
+}
 // Infos
 
 .asso_description {
   @include article_base();
-  background-color: $color2;
-  color: $color3;
+  background-color: $color3;
 }
 .asso_description button {
   @include button($color5, $padding: 0.5vh 2vw);
@@ -254,7 +262,7 @@ nav ul li a:visited {
 
 .support {
   @include article_base();
-  background-color: $color3;
+  background-color: lighten($color2, $amount : 40%);
 }
 .support a {
   font-weight: 600;
@@ -509,30 +517,6 @@ footer {
 
   .passed_event {
     @include article_suite();
-  }
-  .photo {
-    width: 400px;
-    height: 200px;
-    border: 3px solid lightgray;
-    border-radius: 10px;
-    float: right;
-    margin: 2vh 0 0 3vh;
-  }
-  .photo_bordu {
-    width: 230px;
-    height: 170px;
-    border: 3px solid lightgray;
-    border-radius: 10px;
-    float: right;
-    margin: -1vh 0 0 3vw;
-  }
-  .photo_duo {
-    width: 140px;
-    height: 200px;
-    border: 3px solid lightgray;
-    border-radius: 10px;
-    float: left;
-    margin: 4vh 3vw 1vh 0;
   }
   .stage_event {
     @include article_suite();
