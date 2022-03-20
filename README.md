@@ -11,6 +11,7 @@ Website of InExtremis association
 * Symfony CLI
 * Docker
 * Docker-compose
+* NodesJs and npm
 
 ```bash
 symfony check:requirements
@@ -18,7 +19,10 @@ symfony check:requirements
 ### Lauch dev env
 
 ```bash
+composer install
+npm install
 docker-compose up -d
+npm  run watch
 symfony serve -d
 ```
 
@@ -26,3 +30,5 @@ symfony serve -d
 ```bash
 php bin/phpunit --testdox
 ```
+
+### Node test
