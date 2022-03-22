@@ -26,9 +26,13 @@ npm  run watch
 symfony serve -d
 ```
 
+### add test value
+```bash
+symfony console doctrine:fixtures:load
+```
+
 ### Test
 ```bash
 php bin/phpunit --testdox
 ```
 
-### Node test

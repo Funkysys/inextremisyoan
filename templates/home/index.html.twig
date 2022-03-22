@@ -5,7 +5,7 @@
 {% block body %}
     <article class="welcome_page">
         <h2><span>I</span>n <span>E</span>x<span>t</span>r<span>e</span>m<span>i</span>s</h2>
-        <a href="#en_savoir_plus"><button>En savoir plus sur nous</button></a>
+        <a href="{{ path('app_contact') }}"><button>En savoir plus sur nous</button></a>
     </article>
     <article id="actu" class="actualites d-flex justify-content-around">
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -15,22 +15,26 @@
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active">
+                <div class="carousel-item {{ '' ? '' : 'active'}}">
                     <div class="d-block w-100 h-100 pb-4 mb-5" >
-                        <h3>{{ article.title }}</h3>
-                        <p>{{ article.content }}</p>
+                        <h3>{{ article1.title }}</h3>
+                        <p>{{ article1.content }}</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="d-block w-100 h-50 pb-4 mb-5" >
-                        <h3>les dernieres actus</h3>
-                        <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, unde, voluptatum? Alias assumenda doloribus dolorum ex excepturi ipsum praesentium quia reprehenderit, tempore. Animi earum laboriosam, libero nam odio reprehenderit ullam.</span><span>Ab ad amet consequuntur dolore est, illum ipsum itaque magnam, molestias possimus quae, quia repellendus soluta! Aliquam aliquid distinctio fugiat, laudantium modi non numquam perspiciatis praesentium ratione, soluta voluptate voluptatem.</span><span>Architecto atque aut et repellendus sit temporibus! Aspernatur consectetur consequatur culpa cumque dolor dolores ea et fugiat in praesentium provident quae quaerat quibusdam quidem repellendus temporibus ullam, velit voluptas voluptatibus.</span><span>Accusamus accusantium animi consequatur deserunt doloremque, dolores eius enim eum excepturi expedita explicabo harum hic in ipsam itaque mollitia nam nesciunt nostrum obcaecati pariatur quam quidem sed voluptas voluptatem voluptatum.</span><span>Asperiores debitis, dolor doloribus, eius eligendi error esse eveniet expedita fuga fugit ipsam maiores nisi nulla obcaecati officia pariatur perferendis qui quis ratione rem sapiente sint totam vitae! Fuga, quo! blablablablablabalbalablabalbalablabnal</span></p>
+                        <div class="d-block w-100 h-100 pb-4 mb-5" >
+                            <h3>{{ article2.title }}</h3>
+                            <p>{{ article2.content }}</p>
+                        </div>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="d-block w-100 h-100 pb-4 mb-5" >
-                        <h3>les dernieres actus</h3>
-                        <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, unde, voluptatum? Alias assumenda doloribus dolorum ex excepturi ipsum praesentium quia reprehenderit, tempore. Animi earum laboriosam, libero nam odio reprehenderit ullam.</span><span>Ab ad amet consequuntur dolore est, illum ipsum itaque magnam, molestias possimus quae, quia repellendus soluta! Aliquam aliquid distinctio fugiat, laudantium modi non numquam perspiciatis praesentium ratione, soluta voluptate voluptatem.</span><span>Architecto atque aut et repellendus sit temporibus! Aspernatur consectetur consequatur culpa cumque dolor dolores ea et fugiat in praesentium provident quae quaerat quibusdam quidem repellendus temporibus ullam, velit voluptas voluptatibus.</span><span>Accusamus accusantium animi consequatur deserunt doloremque, dolores eius enim eum excepturi expedita explicabo harum hic in ipsam itaque mollitia nam nesciunt nostrum obcaecati pariatur quam quidem sed voluptas voluptatem voluptatum.</span><span>Asperiores debitis, dolor doloribus, eius eligendi error esse eveniet expedita fuga fugit ipsam maiores nisi nulla obcaecati officia pariatur perferendis qui quis ratione rem sapiente sint totam vitae! Fuga, quo!</span></p>
+                        <div class="d-block w-100 h-100 pb-4 mb-5" >
+                            <h3>{{ article3.title }}</h3>
+                            <p>{{ article3.content }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
