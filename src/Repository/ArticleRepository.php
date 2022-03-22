@@ -34,6 +34,19 @@ class ArticleRepository extends ServiceEntityRepository
     }
 
     /**
+     * @return Article[] returns an array of article objects
+     */
+    public function lastThree()
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.post_date', 'DESC')
+            ->setMaxResults(3)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    /**
      * @throws ORMException
      * @throws OptimisticLockException
      */

@@ -44,6 +44,35 @@ class EventRepository extends ServiceEntityRepository
             $this->_em->flush();
         }
     }
+    /**
+     * @return Event[] returns an array of article objects
+     */
+    public function lastEvent()
+    {
+        return $this->createQueryBuilder('e')
+
+            ->orderBy('e.date', 'DESC')
+            ->where('e.date > :last')
+            ->setParameter('last', new \DateTime('-1 month'))
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    /**
+     * @return Event[] returns an array of article objects
+     */
+    public function oldEvent()
+    {
+        return $this->createQueryBuilder('e')
+            ->orderBy('e.date', 'DESC')
+            ->where('e.date < :last')
+            ->setParameter('last', new \DateTime('-1 month'))
+            ->setMaxResults(5)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 
     // /**
     //  * @return Event[] Returns an array of Event objects
