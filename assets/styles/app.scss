@@ -1,3 +1,530 @@
+// RESET
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+button {
+  border: none;
+}
+
+//  RESET END
+
 @import "~bootstrap/scss/bootstrap";
 
+// SASS config
 
+@import url('https://fonts.googleapis.com/css2?family=David+Libre&family=Merriweather:wght@300&family=Roboto+Slab:wght@200&display=swap');
+
+$color1 : #2f3a47;
+$color2 : #29b1a8;
+$color3 : #F7FFF7;
+$color4 : #FF6B6B;
+$color5 : #FFE66D;
+
+@mixin button ($background, $padding) {
+  background-color: $background;
+  padding: $padding;
+  color: $color3;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px black;
+
+  &:hover {
+    box-shadow: none;
+    color: lightblue;
+  }
+}
+@mixin article_base {
+  padding: 3vh 7vw;
+  line-height: 1.5em;
+  h2 {
+    font-family: 'Merriweather', serif;
+    text-decoration: underline;
+    font-size: 1.2em;
+    margin-bottom: 2vh;
+  }
+  h3 {
+    font-family: 'Merriweather', serif;
+    text-decoration: underline;
+    margin-bottom: 1.5vh;
+    margin-top: 1vh;
+    $color: white;
+  }
+}
+
+// body
+
+body {
+  font-family: 'David Libre', serif;
+  width: 100vw;
+  height: 70vh;
+  margin: 0;
+  padding: 0;
+}
+
+// Header
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8vh;
+  width: 100vw;
+  background-color: $color2;
+  color : $color1;
+  overflow: hidden;
+}
+a {
+  text-decoration: none;
+}
+h1 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.6em;
+  margin: -0.6vh 1vw 0;
+  color: $color1;
+  text-decoration: none;
+}
+h1 span {
+  color: $color3;
+}
+
+nav {
+  background: #29b1a8;
+}
+
+nav ul li a {
+  font-family: 'Merriweather', serif;
+  margin: 0 2vw;
+  color : $color3;
+}
+nav ul li a:visited {
+  color : lighten($color5, $amount : 16%);
+}
+
+// Welcome_page
+
+.welcome_page {
+  height: 50vh;
+  background-color: $color3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.welcome_page h2 {
+  font-family: 'Merriweather', serif;
+  margin-bottom: 2vh;
+  font-size: 3em;
+  border-bottom: 1px solid transparent;
+  padding: 12px 48px;
+  color: lighten($color1, $amount : 60%);
+  background: linear-gradient(to right, $color5 40%, white 20%, lighten($color5, $amount: 26%) 40%) 0;
+  animation: shine 3s infinite linear;
+  animation-fill-mode: forwards;
+  text-decoration: none;
+  border-radius: 100px;
+}
+@keyframes shine {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    background-position: 220px;
+  }
+  100% {
+    background-position: 0;
+  }
+}
+.welcome_page h2 span {
+  color: lighten($color1, $amount : 20%);
+}
+.welcome_page button {
+  @include button($color4, $padding: 1vh 5vw);
+}
+.actualites {
+  @include article_base();
+  background-color: $color2;
+  color: $color3;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(0,0,0,0.6)), url('../../public/asset/images/jpg/cajarc2.jpg');
+}
+.exprimez-vous {
+  @include article_base();
+  background-color: $color3;
+}
+// Infos
+
+.asso_description {
+  @include article_base();
+  background-color: $color3;
+}
+.asso_description button {
+  @include button($color5, $padding: 0.5vh 2vw);
+  margin-left: 2vw;
+  font-size: 0.6em;
+  color: $color1;
+}
+.photo {
+  width: 200px;
+  height: 100px;
+  border: 3px solid lightgray;
+  border-radius: 10px;
+  float: right;
+  margin: 2vh 0 0 1vh;
+}
+
+.photo_bordu {
+  width: 160px;
+  height: 120px;
+  border: 3px solid lightgray;
+  border-radius: 10px;
+  float: right;
+  margin: 2vh 0 0 1vh;
+}
+
+.photo_duo {
+  width: 120px;
+  height: 180px;
+  border: 3px solid lightgray;
+  border-radius: 10px;
+  float: right;
+  margin: 2vh 0 0 1vh;
+}
+
+
+.photo {
+  width: 200px;
+  height: 100px;
+  border: 3px solid lightgray;
+  border-radius: 10px;
+  float: right;
+  margin: 2vh 0 0 1vh;
+}
+
+.photo_bordu {
+  width: 160px;
+  height: 120px;
+  border: 3px solid lightgray;
+  border-radius: 10px;
+  float: right;
+  margin: 2vh 0 0 1vh;
+}
+
+.photo_duo {
+  width: 120px;
+  height: 180px;
+  border: 3px solid lightgray;
+  border-radius: 10px;
+  float: right;
+  margin: 2vh 0 0 1vh;
+}
+// Support
+
+.support {
+  @include article_base();
+  background-color: lighten($color2, $amount : 40%);
+}
+.support a {
+  font-weight: 600;
+  color: lighten($color1, $amount : 25%);
+}
+
+
+// Contact
+
+#contact {
+  @include article_base();
+  background-color: $color2;
+  color: $color3;
+  display: flex;
+  flex-direction: column;
+  vertical-align: center;
+
+}
+.logo {
+  width: 50px;
+  height: 50px;
+  float : left;
+  margin: 20px 20px 0 0;
+  background-color: #eee;
+  border-radius: 50px;
+  border: 5px solid $color1;
+}
+#mail {
+  text-decoration: none;
+  color: rgb(26, 25, 24);
+  font-size: 1.3em;
+}
+.mail_and_phone {
+  color: rgb(0, 0, 0);
+  font-size: 2em;
+  margin : 4vh 0;
+}
+#phone {
+  text-decoration: none;
+  color: rgb(26, 25, 24);
+
+}
+.social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: black;
+}
+
+.social_logo {
+  margin: 3vh 0 3vh 10vw;
+}
+
+// Event Page
+
+.upcomming_event {
+  @include article_base();
+  background-color: $color3;
+}
+
+.passed_event {
+  @include article_base();
+  background-color: $color2;
+  color: $color3;
+}
+
+.stage_event {
+  @include article_base();
+  background-color: $color3;
+}
+
+// Footer
+
+footer {
+  height: 10vh;
+  background-color: $color1;
+  color: $color5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width : 415px) {
+  h1 {
+    font-size: 2em;
+  }
+  @mixin article_base {
+    h2 {
+      font-size: 1.3em;
+    }
+  }
+}
+@media screen and (min-width : 992px) {
+  @mixin article_suite {
+    padding: 10vh 25vw;
+    line-height: 1.5em;
+    h2 {
+      font-family: 'Merriweather', serif;
+      text-decoration: underline;
+      font-size: 2.5em;
+      margin-bottom: 6vh;
+    }
+    h3 {
+      font-family: 'Merriweather', serif;
+      text-decoration: underline;
+      margin-bottom: 2vh;
+      margin-top: 3vh;
+      font-size: 1.5em;
+    }
+    p {
+      font-size: 1.3em;
+    }
+  }
+
+  // Header
+
+  header {
+    padding : 4vh 1vw;
+    width: 100vw;
+    background-color: $color2;
+    color : $color1;
+  }
+  h1 {
+    font-size: 4em;
+  }
+  nav ul {
+    position: absolute;
+    right: 0;
+  }
+  nav ul li a:hover {
+    color : lighten($color5, $amount : 11%);
+  }
+
+  // Welcome Page
+
+  .welcome_page {
+    height: 85vh;
+  }
+  .welcome_page h2 {
+    margin-bottom: 10vh;
+    font-size: 10em;
+  }
+  @keyframes shine {
+    60% {
+      background-position: 3.8em;
+    }
+  }
+  .welcome_page button {
+    @include button($color4, $padding: 2vh 5vw);
+    font-size: 3em;
+  }
+  .welcome_page button:hover {
+    font-size: 2.8em;
+    border-top: 0.1em solid transparent;
+  }
+  .asso_description {
+    @include article_suite();
+  }
+  .asso_description button {
+    font-size: 1.3em;
+    margin-top: 1vh;
+  }
+  .support {
+    @include article_suite();
+    font-size: 1.3em;
+  }
+  .support a:hover {
+    color: darken($color5, $amount : 30%)
+  }
+
+  // Contact
+
+  #contact {
+    @include article_suite();
+    text-align: center;
+  }
+  #contact h2 {
+    font-size: 3.5em;
+  }
+  .logo {
+    width: 90px;
+    height: 90px;
+    margin: 7vh 5vw 0 0;
+  }
+  .logo:hover {
+    float : left;
+    border: 5px solid $color4;
+  }
+  #mail {
+    margin-top: 10vh;
+    font-size: 2.5em;
+  }
+  #mail:hover {
+    text-decoration: underline;
+    color: $color5;
+  }
+  .mail_and_phone {
+    font-size: 3em;
+  }
+  #phone {
+    margin : 10vh 0;
+  }
+  #phone:hover {
+    text-decoration: underline;
+    color: $color5;
+  }
+  .social {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+
+  .social_logo {
+    margin: 3vh 0 3vh 10vw;
+  }
+
+  // Event Page
+
+
+  .photo {
+    width: 400px;
+    height: 200px;
+    border: 3px solid lightgray;
+    border-radius: 10px;
+    float: right;
+    margin: 2vh 0 0 3vh;
+  }
+  .photo_bordu {
+    width: 230px;
+    height: 170px;
+    border: 3px solid lightgray;
+    border-radius: 10px;
+    float: right;
+    margin: -1vh 0 0 3vw;
+  }
+  .photo_duo {
+    width: 140px;
+    height: 200px;
+    border: 3px solid lightgray;
+    border-radius: 10px;
+    float: left;
+    margin: 4vh 3vw 1vh 0;
+  }
+  .upcomming_event {
+    @include article_suite();
+  }
+
+  .passed_event {
+    @include article_suite();
+  }
+  .stage_event {
+    @include article_suite();
+  }
+
+  // Footer
+
+  footer {
+    font-size: 1.4em;
+  }
+}
