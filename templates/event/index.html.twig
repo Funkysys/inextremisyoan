@@ -19,7 +19,11 @@
     <article class="passed_event">
         <h2>Evènements passés </h2>
         {% for oldEvent in oldEvents %}
-            <img src="{{ asset( oldEvent.photo ) }}" alt="photo {{ oldEvent.title }}" class="photo_duo">
+            {% if oldEvent.id % 2 == 0 %}
+                <img src="{{ asset( oldEvent.photo ) }}" alt="photo {{ oldEvent.title }}" class="photo_duo">
+            {% else %}
+                <img src="{{ asset( oldEvent.photo ) }}" alt="photo {{ oldEvent.title }}" class="photo_bordu">
+            {% endif %}
             <h3>{{ oldEvent.title }}</h3>
             <p>{{ oldEvent.description }}</p>
         {% endfor %}

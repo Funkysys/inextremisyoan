@@ -65,10 +65,10 @@ class EventRepository extends ServiceEntityRepository
     public function oldEvent()
     {
         return $this->createQueryBuilder('e')
-            ->orderBy('e.date', 'DESC')
+            ->orderBy('e.id', 'DESC')
             ->where('e.date < :last')
             ->setParameter('last', new \DateTime('-1 month'))
-            ->setMaxResults(5)
+            ->setMaxResults(3)
             ->getQuery()
             ->getResult()
             ;

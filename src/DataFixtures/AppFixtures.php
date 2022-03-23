@@ -11,7 +11,9 @@ use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-
+/**
+ * @codeCoverageIgnore
+ */
 class AppFixtures extends Fixture
 {
 
@@ -27,17 +29,19 @@ class AppFixtures extends Fixture
         // use the factory to create a Faker\Generator instance
         $faker = Factory::create('Fr');
 
-        for ($i=0; $i < 4; $i++) {
             $user = new User();
-            $user   ->setEmail($faker->email())
+            $user   ->setEmail('user@user.test')
                 ->setFirstname($faker->firstName())
-                ->setLastname($faker->lastName());
+                ->setLastname($faker->lastName())
+                ->setRoles(['ROLE_ADMIN'])
+            ;
             $password = $this->hasher->hashPassword($user, 'pass_1234');
             $user->setPassword($password);
 
             $manager->persist($user);
-        }
-        for ($i=0; $i < 10; $i++) {
+
+
+        for ($i=0; $i < 2; $i++) {
             $article = new Article();
             $article    ->setPostDate($faker->dateTime())
                         ->setImage($faker->image())
@@ -61,6 +65,17 @@ class AppFixtures extends Fixture
                 $manager->persist($comment);
             }
         }
+
+        //test article creation
+        $article = new Article();
+
+        $article    ->setTitle('article de test')
+            ->setContent($faker->text(350))
+            ->setImage($faker->image())
+            ->setPostDate($faker->dateTime())
+        ;
+        $manager->persist($article);
+
         for ($i=0; $i < 10; $i++) {
             $event = new Event();
             $event  ->setDate($faker->dateTime())
@@ -85,6 +100,15 @@ class AppFixtures extends Fixture
                 $manager->persist($comment);
             }
         }
+
+        $event = new Event();
+
+        $event    ->setTitle('article de test')
+            ->setDescription($faker->text(350))
+            ->setPhoto($faker->image())
+            ->setDate($faker->dateTime('now'))
+        ;
+        $manager->persist($event);
 
         $manager->flush();
     }

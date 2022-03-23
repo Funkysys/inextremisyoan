@@ -16,12 +16,14 @@ class UserUnitTest extends TestCase
             ->setPassword('password')
             ->setFirstname('Antoine')
             ->setLastname('Delbos')
+            ->setRoles(['ROLE_TEST'])
             ;
 
         $this->assertSame($user->getEmail(), 'true@test.com');
         $this->assertSame($user->getPassword(), 'password');
         $this->assertSame($user->getFirstname(), 'Antoine');
         $this->assertSame($user->getLastname(), 'Delbos');
+        $this->assertSame($user->getRoles(), ['ROLE_TEST', 'ROLE_USER']);
     }
 
     public function testIsFalse(): void
@@ -32,12 +34,14 @@ class UserUnitTest extends TestCase
             ->setPassword('password')
             ->setFirstname('Antoine')
             ->setLastname('Delbos')
+            ->setRoles(['ROLE_TEST'])
         ;
 
         $this->assertNotSame($user->getEmail(), 'false@test.com');
         $this->assertNotSame($user->getPassword(), 'false');
         $this->assertNotSame($user->getFirstname(), 'false');
         $this->assertNotSame($user->getLastname(), 'false');
+        $this->assertNotSame($user->getRoles(), 'false');
     }
 
     public function testIsEmpty(): void
@@ -45,8 +49,11 @@ class UserUnitTest extends TestCase
         $user = new User();
 
         $this->assertEmpty($user->getEmail());
+        $this->assertEmpty($user->getUserIdentifier());
         $this->assertEmpty($user->getFirstname());
         $this->assertEmpty($user->getLastname());
+        $this->assertEmpty($user->getId());
     }
+
 
 }

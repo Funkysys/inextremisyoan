@@ -73,5 +73,6 @@ La pomme de terre est originaire de la cordillère des Andes (Pérou), dans le S
         $this->assertEmpty($comment->getCreateAt());
         $this->assertEmpty($comment->getArticle());
         $this->assertEmpty($comment->getEvent());
+        $this->assertEmpty($comment->getId());
     }
 }

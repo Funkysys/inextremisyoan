@@ -1,3 +1,5 @@
+@import "~bootstrap/scss/bootstrap";
+
 // RESET
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -50,7 +52,7 @@ button {
 
 //  RESET END
 
-@import "~bootstrap/scss/bootstrap";
+
 
 // SASS config
 
@@ -87,7 +89,7 @@ $color5 : #FFE66D;
     font-family: 'Merriweather', serif;
     text-decoration: underline;
     margin-bottom: 1.5vh;
-    margin-top: 1vh;
+    margin-top: 3vh;
     $color: white;
   }
 }
@@ -228,36 +230,9 @@ nav ul li a:visited {
   border: 3px solid lightgray;
   border-radius: 10px;
   float: right;
-  margin: 2vh 0 0 1vh;
+  margin: 4vh 3vw 5vh 0;
 }
 
-
-.photo {
-  width: 200px;
-  height: 100px;
-  border: 3px solid lightgray;
-  border-radius: 10px;
-  float: right;
-  margin: 2vh 0 0 1vh;
-}
-
-.photo_bordu {
-  width: 160px;
-  height: 120px;
-  border: 3px solid lightgray;
-  border-radius: 10px;
-  float: right;
-  margin: 2vh 0 0 1vh;
-}
-
-.photo_duo {
-  width: 120px;
-  height: 180px;
-  border: 3px solid lightgray;
-  border-radius: 10px;
-  float: right;
-  margin: 2vh 0 0 1vh;
-}
 // Support
 
 .support {
@@ -509,7 +484,7 @@ footer {
     border: 3px solid lightgray;
     border-radius: 10px;
     float: left;
-    margin: 4vh 3vw 1vh 0;
+    margin: -2vh 3vw 1vh 0;
   }
   .upcomming_event {
     @include article_suite();
@@ -517,6 +492,10 @@ footer {
 
   .passed_event {
     @include article_suite();
+    padding: 15vh 25vw;
+  }
+  .passed_event p {
+    margin-bottom: 10rem;
   }
   .stage_event {
     @include article_suite();

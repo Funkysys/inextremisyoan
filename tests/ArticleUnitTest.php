@@ -3,6 +3,7 @@
 namespace App\Tests;
 
 use App\Entity\Article;
+use App\Entity\Comment;
 use PHPUnit\Framework\TestCase;
 
 class ArticleUnitTest extends TestCase
@@ -52,5 +53,20 @@ La pomme de terre est originaire de la cordillère des Andes (Pérou), dans le S
         $this->assertEmpty($article->getContent());
         $this->assertEmpty($article->getImage());
         $this->assertEmpty($article->getPostDate());
+        $this->assertEmpty($article->getId());
+    }
+
+    public function testAddGetRemoveComment()
+    {
+        $article = new Article();
+        $comment = new Comment();
+
+        $this->assertEmpty($article->getComments());
+
+        $article->addComment($comment);
+        $this->assertContains($comment, $article->getComments());
+
+        $article->removeComment($comment);
+        $this->assertEmpty($article->getComments());
     }
 }

@@ -26,9 +26,9 @@
             {% endif %}
 
             <h1 class="h3 mb-3 mt-5 ms-5 font-weight-normal">Veuillez vous connecter ici</h1>
-            <label for="inputEmail" class="ms-5">Email</label>
+            <label for="inputEmail" class="ms-5 mb-2">Email</label>
             <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mb-3 ms-5 w-50" autocomplete="email" required autofocus>
-            <label for="inputPassword"  class="ms-5">Password</label>
+            <label for="inputPassword"  class="ms-5 mb-2">Password</label>
             <input type="password" name="password" id="inputPassword" class="form-control mb-3 ms-5 w-50" autocomplete="current-password" required>
 
             <input type="hidden" name="_csrf_token"
@@ -47,7 +47,7 @@
             #}
 
             <button class="btn fs-5 ms-5 mb-5 btn-primary" type="submit">
-                Sign in
+                Connection
             </button>
         </form>
     </body>
