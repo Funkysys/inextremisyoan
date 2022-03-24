@@ -41,14 +41,15 @@ class AppFixtures extends Fixture
             $manager->persist($user);
 
 
-        for ($i=0; $i < 2; $i++) {
+        for ($i=0; $i < 3; $i++) {
+            //test article creation
             $article = new Article();
-            $article    ->setPostDate($faker->dateTime())
-                        ->setImage($faker->image())
-                        ->setTitle($faker->text())
-                        ->setContent($faker->text())
-                ;
 
+            $article    ->setTitle('article de test')
+                ->setContent($faker->text(350))
+                ->setImage($faker->image())
+                ->setPostDate($faker->dateTime())
+            ;
             $manager->persist($article);
 
             for ($j = 0; $j < 3; $j++) {
@@ -66,15 +67,7 @@ class AppFixtures extends Fixture
             }
         }
 
-        //test article creation
-        $article = new Article();
 
-        $article    ->setTitle('article de test')
-            ->setContent($faker->text(350))
-            ->setImage($faker->image())
-            ->setPostDate($faker->dateTime())
-        ;
-        $manager->persist($article);
 
         for ($i=0; $i < 10; $i++) {
             $event = new Event();

@@ -13,22 +13,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
-    private int $id;
+    private $id;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
-    private string $email;
+    private $email;
 
     #[ORM\Column(type: 'json')]
-    private Array $roles;
+    private $roles;
 
     #[ORM\Column(type: 'string')]
-    private string $password;
+    private $password;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private string $firstname;
+    private $firstname;
 
     #[ORM\Column(type: 'string', length: 255)]
-    private string $lastname;
+    private $lastname;
 
     public function getId(): ?int
     {
