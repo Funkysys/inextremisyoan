@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 class UserUnitTest extends TestCase
 {
 
-        public function testIsTrue()
+        public function testIsTrue() : void
     {
         $user = new User();
 
@@ -54,6 +54,4 @@ class UserUnitTest extends TestCase
         $this->assertEmpty($user->getLastname());
         $this->assertEmpty($user->getId());
     }
-
-
 }
