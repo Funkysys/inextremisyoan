@@ -24,7 +24,7 @@ class Article
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $image;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: 'datetime_immutable')]
     private $post_date;
 
     #[ORM\OneToMany(mappedBy: 'article', targetEntity: Comment::class)]
@@ -77,12 +77,12 @@ class Article
         return $this;
     }
 
-    public function getPostDate(): ?\DateTimeInterface
+    public function getPostDate(): ?\DateTimeImmutable
     {
         return $this->post_date;
     }
 
-    public function setPostDate(\DateTimeInterface $post_date): self
+    public function setPostDate(\DateTimeImmutable $post_date): self
     {
         $this->post_date = $post_date;
 
