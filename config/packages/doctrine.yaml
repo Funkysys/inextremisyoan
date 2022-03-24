@@ -1,5 +1,4 @@
 doctrine:
-    doctrine:
         dbal:
             dbname: database
             host: localhost
