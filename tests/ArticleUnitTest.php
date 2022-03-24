@@ -39,7 +39,7 @@ La pomme de terre est originaire de la cordillère des Andes (Pérou), dans le S
             ->setPostDate($datetime)
         ;
 
-        $this->assertNotSame($article->getTitle(), 'false');
+        $this->assertNotSame($article->getTitle(), 'FALSE');
         $this->assertNotSame($article->getContent(), 'false');
         $this->assertNotSame($article->getImage(), './assert/false');
         $this->assertNotSame($article->getPostDate(), new \DateTime());
