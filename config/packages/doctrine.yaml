@@ -20,7 +20,6 @@ doctrine:
         wrapper_class: App\DBAL\MyConnectionWrapper
         charset: utf8mb4
         logging: '%kernel.debug%'
-        platform_service: App\DBAL\MyDatabasePlatformService
         server_version: '5.7'
         mapping_types:
             enum: string
