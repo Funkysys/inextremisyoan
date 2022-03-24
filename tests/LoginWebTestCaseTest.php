@@ -6,14 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class LoginWebTestCaseTest extends WebTestCase
 {
-    public function testSomething(): void
-    {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/login');
 
-        $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', 'Veuillez vous connecter ici');
-    }
     public function testVistingWhileLoggedIn()
     {
         $client = static::createClient();
