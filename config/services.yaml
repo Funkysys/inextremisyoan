@@ -8,19 +8,6 @@ parameters:
     # to better differentiate your parameters from Symfony parameters).
     app.admin_email: 'inextremis@gmail.com'
 
-    # boolean parameters
-    app.enable_v2_protocol: true
-
-    # array/collection parameters
-    app.supported_locales: ['en', 'es', 'fr']
-
-    # binary content parameters (encode the contents with base64_encode())
-    app.some_parameter: !!binary VGhpcyBpcyBhIEJlbGwgY2hhciAH
-
-    # PHP constants as parameter values
-    app.some_constant: !php/const GLOBAL_CONSTANT
-    app.another_constant: !php/const App\Entity\BlogPost::MAX_ITEMS
-
 services:
     # default configuration for services in *this* file
     _defaults:
