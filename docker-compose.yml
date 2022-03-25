@@ -9,7 +9,7 @@ services:
   database:
     image: 'mysql:latest'
     environment:
-      MYSQL_ROOT_PASSWORD:
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: main
     ports:
       # To allow the host machine to access the ports below, modify the lines below.
