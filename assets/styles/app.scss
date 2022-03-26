@@ -317,12 +317,16 @@ nav ul li a:visited {
 // Footer
 
 footer {
-  height: 10vh;
+  height: 30vh;
   background-color: $color1;
   color: $color5;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.footer_link {
+  color: lighten($color5, $amount : 11%);
 }
 @media screen and (min-width : 415px) {
   h1 {

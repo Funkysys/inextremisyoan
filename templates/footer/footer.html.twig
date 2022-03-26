@@ -2,7 +2,7 @@
     <h2>Contact :</h2>
     <div class="social">
         <a href="mailto:assoinextremis@gmail.com"> <img class="logo" src="{{ asset('asset/images/png/gmail.png') }}"  alt="logo mail clickable"/></a>
-        <a id="mail" class="mail_and_phone" href="assoinextremis@gmail.com">assoinextremis@gmail.com</a>
+        <a id="mail" class="mail_and_phone" href="mailto:assoinextremis@gmail.com">assoinextremis@gmail.com</a>
     </div>
     <div class="social">
         <a href="tel:+630182644"><img class="logo" src="{{ asset('asset/images/png/phone.png') }}" alt="Logo téléphone clickable"/></a>
@@ -15,5 +15,69 @@
     </div>
 </article>
 <footer>
+    <div class="container p-4 text-center mb-3">
+        <!--Grid row-->
+        <div class="row">
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Navigation</h5>
+
+                <ul class="list-unstyled mb-0">
+                    <li>
+                        <a href="{{ path('app_home')}}" class="footer_link">Accueil</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_event')}}" class="footer_link">Evennements</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_contact')}}" class="footer_link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase mb-0">Liens externes</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://www.lestagemusicaledulot.fr" class="footer_link" target="_blank">Le stage musical du lot</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_login') }}" class="footer_link">Connexion</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_logout') }}" class="footer_link">Déconnexion</a>
+                    </li>
+                </ul>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Contactez nous</h5>
+
+                <ul class="list-unstyled mb-0">
+                    <li>
+                        <a class="footer_link" href="mailto:assoinextremis@gmail.com">mail</a>
+                    </li>
+                </ul>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase mb-0">
+                    <a href="{{ path('app_legal')}}" class="footer_link">Mention Legal</a>
+                </h5>
+
+
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+    </div>
+    <!-- Grid container -->
     <p>Copyright @2021 tous droits réservés</p>
 </footer>

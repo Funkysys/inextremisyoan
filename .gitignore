@@ -1,4 +1,3 @@
-
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
@@ -19,10 +18,10 @@ yarn-error.log
 ###> symfony/phpunit-bridge ###
 .phpunit.result.cache
 /phpunit.xml
-EventWebTestCaseTest.php
-HomeWebTestCaseTest.php
-LoginWebTestCaseTest.php
-ContactWebTestCaseTest.php
+/tests/EventWebTestCaseTest.php
+/tests/HomeWebTestCaseTest.php
+/tests/LoginWebTestCaseTest.php
+/tests/ContactWebTestCaseTest.php
 ###< symfony/phpunit-bridge ###
 
 ###> phpunit/phpunit ###
@@ -33,7 +32,3 @@ ContactWebTestCaseTest.php
 ###> /public/ ###
 /public/asset/images/articles/*
 /public/asset/images/events/*
-
-###> liip/imagine-bundle ###
-/public/media/cache/
-###< liip/imagine-bundle ###
