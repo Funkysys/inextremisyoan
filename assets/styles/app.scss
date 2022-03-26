@@ -90,7 +90,6 @@ $color5 : #FFE66D;
     text-decoration: underline;
     margin-bottom: 1.5vh;
     margin-top: 3vh;
-    $color: white;
   }
 }
 
@@ -187,8 +186,11 @@ nav ul li a:visited {
 .actualites {
   @include article_base();
   background-color: $color2;
-  color: $color3;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(0,0,0,0.6)), url('../../public/asset/images/jpg/cajarc2.jpg');
+  background: linear-gradient(to bottom, $color3, $color2);
+}
+.carousel {
+  width: 40vw;
+  text-align: center;
 }
 .exprimez-vous {
   @include article_base();
@@ -299,12 +301,12 @@ nav ul li a:visited {
 .upcomming_event {
   @include article_base();
   background-color: $color3;
+  color: $color3;
 }
 
 .passed_event {
   @include article_base();
   background-color: $color2;
-  color: $color3;
 }
 
 .stage_event {

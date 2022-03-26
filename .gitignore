@@ -19,9 +19,21 @@ yarn-error.log
 ###> symfony/phpunit-bridge ###
 .phpunit.result.cache
 /phpunit.xml
+EventWebTestCaseTest.php
+HomeWebTestCaseTest.php
+LoginWebTestCaseTest.php
+ContactWebTestCaseTest.php
 ###< symfony/phpunit-bridge ###
 
 ###> phpunit/phpunit ###
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+
+###> /public/ ###
+/public/asset/images/articles/*
+/public/asset/images/events/*
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###

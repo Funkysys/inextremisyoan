@@ -6,6 +6,8 @@
 parameters:
     # the parameter name is an arbitrary string (the 'app.' prefix is recommended
     # to better differentiate your parameters from Symfony parameters).
+    events_images: /asset/images/events
+    articles_images: /asset/images/articles
     app.admin_email: 'inextremis@gmail.com'
 
 services:

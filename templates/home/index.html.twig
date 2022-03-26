@@ -7,33 +7,38 @@
         <h2><span>I</span>n <span>E</span>x<span>t</span>r<span>e</span>m<span>i</span>s</h2>
         <a href="{{ path('app_contact') }}"><button>En savoir plus sur nous</button></a>
     </article>
-    <article id="actu" class="actualites d-flex justify-content-around">
+    <article id="actu" class="actualites d-flex justify-content-around" >
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators ">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
-            <div class="carousel-inner">
-                <div class="carousel-item {{ '' ? '' : 'active'}}">
-                    <div class="d-block w-100 h-100 pb-4 mb-5" >
-                        <h3>{{ article1.title }}</h3>
-                        <p>{{ article1.content }}</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="d-block w-100 h-50 pb-4 mb-5" >
-                        <div class="d-block w-100 h-100 pb-4 mb-5" >
-                            <h3>{{ article2.title }}</h3>
-                            <p>{{ article2.content }}</p>
+            <div class="carousel-inner" >
+                <div class="carousel-item {{ '' ? '' : 'active' }}">
+                    <div class="d-block pb-4 mb-5 d-flex justify-content-center" >
+                        <div class="card col-md-12 col-lg-8">
+                            <h3>{{ article1.title }}</h3>
+                            <p class="mb-5">{{ article1.content }}</p>
+                            <img src="{{ vich_uploader_asset(article1, 'imageFile') }}" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="d-block w-100 h-100 pb-4 mb-5" >
-                        <div class="d-block w-100 h-100 pb-4 mb-5" >
+                    <div class="d-block pb-4 mb-5 d-flex justify-content-center" >
+                        <div class="card col-md-12 col-lg-8">
+                            <h3>{{ article2.title }}</h3>
+                            <p class="mb-5">{{ article2.content }}</p>
+                            <img src="{{ vich_uploader_asset(article2, 'imageFile') }}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-block pb-4 mb-5 d-flex justify-content-center" >
+                        <div class="card col-md-12 col-lg-8">
                             <h3>{{ article3.title }}</h3>
-                            <p>{{ article3.content }}</p>
+                            <p class="mb-5">{{ article3.content }}</p>
+                            <img src="{{ vich_uploader_asset(article3, 'imageFile') }}" alt="">
                         </div>
                     </div>
                 </div>
