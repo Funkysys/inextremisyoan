@@ -52,7 +52,7 @@ jobs:
 
       - name: Run Migration
         run: |
-          composer require symfony/orm-pack
+          composer require --env=test symfony/orm-pack
           php bin/console doctrine:database:create --env=test|| echo "No migrations found or schema update failed"
           php bin/console doctrine:migrations:migrate --env=test 'DoctrineMigrations\Version20220324165140'|| echo "No migrations found or migration failed"
           php bin/console doctrine:fixtures:load --env=test --append
