@@ -6,8 +6,14 @@ use App\Repository\EventRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 #[ORM\Entity(repositoryClass: EventRepository::class)]
+
+/**
+ * @Vich\Uploadable
+ */
 class Event
 {
     #[ORM\Id]
@@ -24,10 +30,16 @@ class Event
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $photo;
 
+    /**
+     * @Vich\UploadableField(mapping="events_images", fileNameProperty="photo")
+     * @var File
+     */
+    private $imageFile;
+
     #[ORM\Column(type: 'datetime')]
     private $date;
 
-    #[ORM\OneToMany(mappedBy: 'event', targetEntity: Comment::class)]
+    #[ORM\OneToMany(mappedBy: 'event', targetEntity: Comment::class, cascade: ["remove"])]
     private $comments;
 
     public function __construct()
@@ -117,6 +129,23 @@ class Event
         }
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param mixed $imageFile
+     */
+    public function setImageFile(File $photo = null): void
+    {
+        $this->imageFile = $photo;
+
     }
 
 }

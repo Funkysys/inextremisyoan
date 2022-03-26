@@ -11,7 +11,7 @@ class ArticleUnitTest extends TestCase
     public function testIsTrue(): void
     {
         $article = new Article();
-        $datetime = new \DateTime();
+        $datetime = new \DateTimeImmutable();
 
         $article ->setTitle('la pomme de terre, ça fait plaisir')
             ->setContent('La Pomme de terre ou patate (langage familier, canadianisme et belgicisme) est un tubercule comestible produit par l’espèce Solanum tuberosum, appartenant à la famille des solanacées. Le terme désigne également la plante elle-même, plante herbacée, vivace par ses tubercules mais toujours cultivée comme une culture annuelle. La pomme de terre est une plante qui réussit dans la plupart des sols, mais elle préfère les sols légers et légèrement acides. La plante est sujette aux maladies dans des sols calcaires ou manquant d’humus1.
@@ -30,7 +30,7 @@ La pomme de terre est originaire de la cordillère des Andes (Pérou), dans le S
     public function testIsFalse(): void
     {
         $article = new Article();
-        $datetime = new \DateTime();
+        $datetime = new \DateTimeImmutable();
 
         $article ->setTitle('la pomme de terre, ça fait plaisir')
             ->setContent('La Pomme de terre ou patate (langage familier, canadianisme et belgicisme) est un tubercule comestible produit par l’espèce Solanum tuberosum, appartenant à la famille des solanacées. Le terme désigne également la plante elle-même, plante herbacée, vivace par ses tubercules mais toujours cultivée comme une culture annuelle. La pomme de terre est une plante qui réussit dans la plupart des sols, mais elle préfère les sols légers et légèrement acides. La plante est sujette aux maladies dans des sols calcaires ou manquant d’humus1.

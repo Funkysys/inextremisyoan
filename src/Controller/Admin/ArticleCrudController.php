@@ -3,14 +3,12 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Article;
-use DateTimeInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Form\Type\FileUploadType;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ArticleCrudController extends AbstractCrudController
 {
@@ -28,13 +26,8 @@ class ArticleCrudController extends AbstractCrudController
         return [
             TextField::new('title'),
             TextareaField::new('content'),
-            ImageField::new('image')
-                        ->setBasePath(' images/artciles/')
-                        ->setUploadDir('public/asset/images/articles')
-                        ->setFormType(FileUploadType::class)
-                        ->setUploadedFileNamePattern('[randomhash].[extension]')
-            ,
-            DateField::new('post_date')->hideOnForm(),
+            TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
+            ImageField::new('image')->setBasePath('asset/images/articles')->onlyOnIndex()
         ];
     }
 
