@@ -6,6 +6,7 @@ use App\Entity\Article;
 use App\Entity\Comment;
 use App\Entity\Event;
 use App\Entity\User;
+use DateTimeInterface;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
@@ -44,11 +45,12 @@ class AppFixtures extends Fixture
         for ($i=0; $i < 3; $i++) {
             //test article creation
             $article = new Article();
+            $date = new \DateTimeImmutable;
 
             $article    ->setTitle('article de test')
                 ->setContent($faker->text(350))
                 ->setImage($faker->image())
-                ->setPostDate($faker->dateTime())
+                ->setPostDate($date)
             ;
             $manager->persist($article);
 

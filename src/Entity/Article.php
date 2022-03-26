@@ -6,8 +6,13 @@ use App\Repository\ArticleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
+/**
+ * @Vich\Uploadable
+ */
 class Article
 {
     #[ORM\Id]
@@ -24,10 +29,16 @@ class Article
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $image;
 
-    #[ORM\Column(type: 'datetime')]
+    /**
+     * @Vich\UploadableField(mapping="articles_images", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
+    #[ORM\Column(type: 'datetime_immutable')]
     private $post_date;
 
-    #[ORM\OneToMany(mappedBy: 'article', targetEntity: Comment::class)]
+    #[ORM\OneToMany(mappedBy: 'article', targetEntity: Comment::class, cascade: ["remove"])]
     private $comments;
 
     public function __construct()
@@ -77,12 +88,12 @@ class Article
         return $this;
     }
 
-    public function getPostDate(): ?\DateTimeInterface
+    public function getPostDate(): ?\DateTimeImmutable
     {
         return $this->post_date;
     }
 
-    public function setPostDate(\DateTimeInterface $post_date): self
+    public function setPostDate(\DateTimeImmutable $post_date): self
     {
         $this->post_date = $post_date;
 
@@ -117,5 +128,22 @@ class Article
         }
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param mixed $imageFile
+     */
+    public function setImageFile(File $image = null): void
+    {
+        $this->imageFile = $image;
+
     }
 }
