@@ -17,10 +17,7 @@ yarn-error.log
 ###> symfony/phpunit-bridge ###
 .phpunit.result.cache
 /phpunit.xml
-/tests/EventWebTestCaseTest.php
-/tests/HomeWebTestCaseTest.php
-/tests/LoginWebTestCaseTest.php
-/tests/ContactWebTestCaseTest.php
+
 ###< symfony/phpunit-bridge ###
 
 ###> phpunit/phpunit ###
@@ -28,6 +25,10 @@ yarn-error.log
 .phpunit.result.cache
 ###< phpunit/phpunit ###
 
-###> /public/ ###
 /public/asset/images/articles/*
 /public/asset/images/events/*
+
+/tests/EventWebTestCaseTest.php
+/tests/HomeWebTestCaseTest.php
+/tests/LoginWebTestCaseTest.php
+/tests/ContactWebTestCaseTest.php
