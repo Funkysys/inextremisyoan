@@ -9,8 +9,11 @@ jobs:
       mysql:
         image: mysql:latest
         env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_DATABASE: main
+          MYSQL_DATABASE: u737804456_main
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_USER: u737804456_aadelbos
+          MYSQL_PASSWORD: Flora1608
+          MYSQL_ROOT_PASSWORD: Flora1608
         ports:
           - 3306/tcp
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
@@ -50,6 +53,15 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-progress --prefer-dist --optimize-autoloader
 
+      - name: Run Migration
+        run: |
+          php bin/console doctrine:database:create || echo "No migrations found or schema update failed"
+          php bin/console doctrine:database:create --env=test|| echo "No migrations found or schema update failed"
+          php bin/console doctrine:migrations:migrate 'DoctrineMigrations\Version20220326185500'|| echo "No migrations found or migration failed"
+          php bin/console doctrine:migrations:migrate 'DoctrineMigrations\Version20220326185500' --env=test|| echo "No migrations found or migration failed"
+          php bin/console doctrine:fixtures:load --env=test --append
+        env:
+          DATABASE_URL: mysql://u737804456_aadelbos:Flora1608@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/u737804456_main
 
       - name: Install PHPUnit
         run: simple-phpunit install
