@@ -11,9 +11,8 @@ jobs:
         env:
           MYSQL_DATABASE: main
           MYSQL_HOST: 127.0.0.1
-          MYSQL_USER: admin
-          MYSQL_PASSWORD: root
-          MYSQL_ROOT_PASSWORD:
+          MYSQL_USER: root
+
         ports:
           - 3306/tcp
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
