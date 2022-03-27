@@ -9,9 +9,9 @@ services:
   database:
     image: 'mysql:latest'
     environment:
-      MYSQL_USER: u737804456_aadelbos
-      MYSQL_ROOT_PASSWORD: Flora1608
-      MYSQL_DATABASE: u737804456_main
+      MYSQL_USER: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+      MYSQL_DATABASE: main
     ports:
       # To allow the host machine to access the ports below, modify the lines below.
       # For example, to allow the host to connect to port 3306 on the container, you would change
