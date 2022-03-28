@@ -9,10 +9,7 @@ jobs:
       mysql:
         image: mysql:latest
         env:
-          MYSQL_DATABASE: main
-          MYSQL_HOST: 127.0.0.1
-          MYSQL_USER: u737804456_aadelbos
-          MYSQL_PASSWORD: ${{secrets.DATABASEPASSWORD}}
+          DATABASE_URL: mysql://u737804456_aadelbos:${{secrets.DATABASEPASSWORD}}@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/main
         ports:
           - 3306/tcp
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
@@ -35,6 +32,11 @@ jobs:
 
       - name: Start mysql service
         run: sudo systemctl start mysql
+        env:
+          MYSQL_DATABASE: main
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_USER: u737804456_aadelbos
+          MYSQL_PASSWORD: ${{secrets.DATABASEPASSWORD}}
 
       - name: Get composer cache directory
         id: composer-cache
