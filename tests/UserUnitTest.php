@@ -17,6 +17,7 @@ class UserUnitTest extends TestCase
             ->setFirstname('Antoine')
             ->setLastname('Delbos')
             ->setRoles(['ROLE_TEST'])
+            ->setPassPhrasing('lestagemusicaldulotçadéfonce')
             ;
 
         $this->assertSame($user->getEmail(), 'true@test.com');
@@ -24,6 +25,7 @@ class UserUnitTest extends TestCase
         $this->assertSame($user->getFirstname(), 'Antoine');
         $this->assertSame($user->getLastname(), 'Delbos');
         $this->assertSame($user->getRoles(), ['ROLE_TEST', 'ROLE_USER']);
+        $this->assertSame($user->getPassPhrasing(), 'lestagemusicaldulotçadéfonce');
     }
 
     public function testIsFalse(): void
@@ -35,6 +37,7 @@ class UserUnitTest extends TestCase
             ->setFirstname('Antoine')
             ->setLastname('Delbos')
             ->setRoles(['ROLE_TEST'])
+            ->setPassPhrasing('lestagemusicaldulotçadéfonce')
         ;
 
         $this->assertNotSame($user->getEmail(), 'false@test.com');
@@ -42,6 +45,7 @@ class UserUnitTest extends TestCase
         $this->assertNotSame($user->getFirstname(), 'false');
         $this->assertNotSame($user->getLastname(), 'false');
         $this->assertNotSame($user->getRoles(), 'false');
+        $this->assertNotSame($user->getPassPhrasing(), 'false');
     }
 
     public function testIsEmpty(): void
@@ -53,5 +57,6 @@ class UserUnitTest extends TestCase
         $this->assertEmpty($user->getFirstname());
         $this->assertEmpty($user->getLastname());
         $this->assertEmpty($user->getId());
+        $this->assertEmpty($user->getPassPhrasing());
     }
 }
