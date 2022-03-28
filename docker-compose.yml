@@ -9,9 +9,10 @@ services:
   database:
     image: 'mysql:latest'
     environment:
-      MYSQL_ONETIME_PASSWORD:
-      MYSQL_ALLOW_EMPTY_PASSWORD: true
       MYSQL_DATABASE: main
+      MYSQL_HOST: localhost
+      MYSQL_USER: u737804456_aadelbos
+      MYSQL_PASSWORD: ${{secrets.DATABASEPASSWORD}}
     ports:
       # To allow the host machine to access the ports below, modify the lines below.
       # For example, to allow the host to connect to port 3306 on the container, you would change
