@@ -5,7 +5,15 @@ jobs:
   symfony:
     name: Symfony (PHP ${{ matrix.php-versions }})
     runs-on: ubuntu-latest
-
+    services:
+      mysql:
+        image: mysql:latest
+        env:
+          MYSQL_DATABASE: main
+          MYSQL_HOST: localhost
+        ports:
+          - 3306/tcp
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
     strategy:
       fail-fast: false
       matrix:
@@ -25,12 +33,6 @@ jobs:
 
       - name: Start mysql service
         run: sudo systemctl start mysql
-        env:
-          MYSQL_DATABASE: main
-          MYSQL_HOST: 127.0.0.1
-          MYSQL_USER: u737804456_aadelbos
-          MYSQL_PASSWORD: ${{secrets.DATABASEPASSWORD}}
-          options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
       - name: Get composer cache directory
         id: composer-cache
@@ -54,15 +56,12 @@ jobs:
           php bin/console doctrine:migrations:migrate 'DoctrineMigrations\Version20220326185500' --env=test|| echo "No migrations found or migration failed"
           php bin/console doctrine:fixtures:load --env=test --append
         env:
-          MYSQL_DATABASE: main
-          MYSQL_HOST: 127.0.0.1
-          MYSQL_USER: u737804456_aadelbos
-          MYSQL_PASSWORD: ${{secrets.DATABASEPASSWORD}}
-          options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-          DATABASE_URL: mysql://u737804456_aadelbos:${{secrets.DATABASEPASSWORD}}@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/main
+          DATABASE_URL: mysql://root:@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/main
 
       - name: Install PHPUnit
         run: simple-phpunit install
 
       - name: Run tests
         run: simple-phpunit --coverage-text
+        env:
+          DATABASE_URL: mysql://root:@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/main
