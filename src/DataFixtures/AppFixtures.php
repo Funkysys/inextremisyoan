@@ -32,10 +32,10 @@ class AppFixtures extends Fixture
 
             $user = new User();
             $user   ->setEmail('user@user.test')
-                ->setFirstname($faker->firstName())
-                ->setLastname($faker->lastName())
-                ->setRoles(['ROLE_ADMIN'])
-                ->setPassPhrasing('lestagemusicaldulotçadéfonce')
+                    ->setFirstname($faker->firstName())
+                    ->setLastname($faker->lastName())
+                    ->setRoles(['ROLE_ADMIN'])
+                    ->setPassPhrasing('lestagemusicaldulotçadéfonce')
             ;
             $password = $this->hasher->hashPassword($user, 'pass_1234');
             $user->setPassword($password);
@@ -49,9 +49,9 @@ class AppFixtures extends Fixture
             $date = new \DateTimeImmutable;
 
             $article    ->setTitle('article de test')
-                ->setContent($faker->text(350))
-                ->setImage($faker->image())
-                ->setPostDate($date)
+                        ->setContent($faker->text(350))
+                        ->setImage($faker->image())
+                        ->setPostDate($date)
             ;
             $manager->persist($article);
 
@@ -76,7 +76,7 @@ class AppFixtures extends Fixture
             $event = new Event();
             $event  ->setDate($faker->dateTime())
                     ->setPhoto($faker->image())
-                    ->setTitle($faker->text())
+                    ->setTitle('article de test')
                     ->setDescription($faker->text())
             ;
 
@@ -100,9 +100,9 @@ class AppFixtures extends Fixture
         $event = new Event();
 
         $event    ->setTitle('article de test')
-            ->setDescription($faker->text(350))
-            ->setPhoto($faker->image())
-            ->setDate($faker->dateTime('now'))
+                  ->setDescription($faker->text(350))
+                  ->setPhoto($faker->image())
+                  ->setDate($faker->dateTime('now'))
         ;
         $manager->persist($event);
 

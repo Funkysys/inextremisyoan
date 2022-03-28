@@ -11,8 +11,8 @@ class EventWebTestCaseTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/event');
 
-        $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h2', 'Evènements à venir');
+        self::assertResponseIsSuccessful();
+        self::assertSelectorTextContains('h2', 'Evènements à venir');
     }
 
     public function testShouldDisplayOneEvent()
@@ -20,7 +20,7 @@ class EventWebTestCaseTest extends WebTestCase
         $client = static::createClient();
         $crawler = $client->request('GET', '/event');
 
-        $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h3', 'article de test');
+        self::assertResponseIsSuccessful();
+        self::assertSelectorTextContains('h3', 'article de test');
     }
 }
