@@ -58,6 +58,8 @@ jobs:
           MYSQL_HOST: 127.0.0.1
           MYSQL_USER: u737804456_aadelbos
           MYSQL_PASSWORD: ${{secrets.DATABASEPASSWORD}}
+          options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+          DATABASE_URL: mysql://u737804456_aadelbos:${{secrets.DATABASEPASSWORD}}@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/main
 
       - name: Install PHPUnit
         run: simple-phpunit install
