@@ -1,11 +1,5 @@
 doctrine:
     dbal:
-        dbname: u737804456_main
-        host: localhost
-        port: 1234
-        user: u737804456_aadelbos
-        password: Flora1608
-        driver: pdo_mysql
         url: '%env(resolve:DATABASE_URL)%'
 
         # IMPORTANT: You MUST configure your server version,
