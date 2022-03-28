@@ -35,6 +35,7 @@ class AppFixtures extends Fixture
                 ->setFirstname($faker->firstName())
                 ->setLastname($faker->lastName())
                 ->setRoles(['ROLE_ADMIN'])
+                ->setPassPhrasing('lestagemusicaldulotçadéfonce')
             ;
             $password = $this->hasher->hashPassword($user, 'pass_1234');
             $user->setPassword($password);
