@@ -10,8 +10,9 @@ jobs:
         image: mysql:latest
         env:
           MYSQL_DATABASE: main
-          MYSQL_HOST: 127.0.0.1
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_HOST: localhost
+          MYSQL_USER: u737804456_aadelbos
+          MYSQL_PASSWORD: ${{secrets.DatabasePassword}}
         ports:
           - 3306/tcp
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
@@ -57,7 +58,7 @@ jobs:
           php bin/console doctrine:migrations:migrate 'DoctrineMigrations\Version20220326185500' --env=test|| echo "No migrations found or migration failed"
           php bin/console doctrine:fixtures:load --env=test --append
         env:
-          DATABASE_URL: mysql://root:@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/main
+          DATABASE_URL: mysql://u737804456_aadelbos:${{secrets.DatabasePassword}}@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/main
 
       - name: Install PHPUnit
         run: simple-phpunit install
