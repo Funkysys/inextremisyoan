@@ -8,8 +8,7 @@ jobs:
     services:
       mysql:
         image: mysql:latest
-        env:
-          DATABASE_URL: mysql://root:@127.0.0.1:${{ job.services.mysql.ports['3306'] }}/main
+
         ports:
           - 3306/tcp
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
