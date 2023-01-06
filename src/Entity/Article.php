@@ -10,9 +10,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
 
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
-/**
- * @Vich\Uploadable
- */
+#[Vich\Uploadable]
 class Article
 {
     #[ORM\Id]
